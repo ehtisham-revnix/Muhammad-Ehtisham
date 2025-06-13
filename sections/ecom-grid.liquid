@@ -1,0 +1,137 @@
+  {{ 'ecom-grid.css' | asset_url | stylesheet_tag }}
+
+<section class="feature-products">
+    <div class="container">
+        <div class="feature-product-heading">
+            {{ section.settings.heading }}
+        </div>
+        <div class="products-grid">
+            {% for block in section.blocks %}
+                {% if block.settings.product != blank %}
+                    {% assign prod = all_products[block.settings.product] %}
+                    <div class="product-block">
+                        <img class="product-image" src="{{ prod.featured_image |  img_url: 'master' }}" alt="{{ prod.title }}">
+                        <div class="product-item-view" onclick="openProductDetails({{ prod.id }})">
+                            {% render 'ecom-icon-view' %}
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+
+
+<div class="product-popup-wrapper">
+    {% for block in section.blocks %}
+        {% if block.settings.product != blank %}
+            {% assign prod = all_products[block.settings.product] %}
+            <div class="product-item" data-product-id="{{ prod.id }}">
+                <div class="close-pop-up" onclick="closePopUp(this)">
+                    {% render 'ecom-icon-close' %}
+                </div>
+                <div class="product-item-info-wrapper">
+                    <div class="product-item-image">
+                        <img class="product-image" src="{{ prod.featured_image |  img_url: 'master' }}" alt="{{ prod.title }}">
+                    </div>
+                    <div class="product-item-info">
+                        <div class="product-item-title"> {{ prod.title }} </div>
+                        <div class="product-item-price"> {{ prod.price | money }}</div>
+                        <div class="product-item-description"> {{ prod.description }} </div>
+                    </div>
+                </div>
+                <div class="product-item-variant-info">
+                    {% if prod.options contains 'Color' %}
+                        <div class="variant-color-heading">Color</div>
+                        <div class="variant-color">
+                            {% for option in prod.options_with_values %}
+                                {% if option.name == "Color" %}
+                                    {% for value in option.values %}
+                                        <button onclick="selectColorVar(this)" class="color-button  {% if product.selected_or_first_available_variant.option1 == value %} active {% endif %}"
+                                        data-color="{{ value }}" data-variant-id="{{ product.varaint | where : 'option1', value | first }}"
+                                        >
+                                            <span class="color-name"> </span>
+                                            <span class="button-text"> {{ value }} </span>
+                                        </button>
+                                    {% endfor %}
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                    {% if prod.options contains "Size" %}
+                        <div class="varaint-size-heading"> Size </div>
+                        <div class="variant-size">
+                            <select name="size" id="variant-size-select" onchange="selectSizeVar(this)">
+                                {% for option in prod.options_with_values %}
+                                    {% if option.name == "Size" %}
+                                        <option value="" > Choose your size</option>
+                                        {% for value in option.values %}
+                                            <option value="{{ value }}" 
+                                                {% if prod.selected_or_first_available_variant.option2 == value %} selected {% endif %}>
+                                                {{ value }}
+                                            </option>
+                                        {% endfor %}
+                                    {% endif %}
+                                {% endfor %}
+                            </select>
+                        </div>
+                    {% endif %}
+                </div>
+                <div class="product-item-add">
+                    <button class="custom-btn btn-primary" onclick="addToCart( '{{ prod.handle }}', 1)">
+                        <span>
+                            ADD TO CART
+                            <img class="arrow-black" src="https://cdn.shopify.com/s/files/1/0618/9108/4363/files/Line_15.png?v=1749611158">
+                            <img class="arrow-white" src="https://cdn.shopify.com/s/files/1/0618/9108/4363/files/arrow-white.png?v=1749611235">
+                        </span>
+                    </button>
+                    
+                </div>
+            </div>
+        {% endif %}
+    {% endfor %}
+</div>
+
+
+<div class="confirmation-box">
+
+</div>
+
+
+</section>
+
+{{ 'ecom-script.js' |  asset_url | script_tag }}
+
+
+{% schema %}
+{
+    "name": "Ecom Feature Products",
+    "settings": [
+        {
+            "type": "text",
+            "id": "heading",
+            "label": "Heading",
+            "default": "Tisso vison in the wild"
+        }
+        ],
+        "blocks": [
+            {
+                "type": "product",
+                "name": "Product",
+                "settings": [
+                    {
+                        "type": "product",
+                        "id": "product",
+                        "label": "Select Product"
+                    }
+                ]
+            }
+        ],
+        "max_blocks": 6,
+        "presets": [
+            {
+                "name": "Ecom Feature Products",
+                "category": "Ecom"
+            }
+        ]
+}
+{% endschema %}
