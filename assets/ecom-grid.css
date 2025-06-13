@@ -1,0 +1,420 @@
+ .feature-products .container {
+        padding: 90px 51px 51px;
+    }
+    .feature-product-heading {
+        font-family: "Lustria";
+        font-weight: 400;
+        font-size: 36px;
+        line-height: 120%;
+        letter-spacing: 0px;
+        vertical-align: middle;
+    }
+    .products-grid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        margin-top: 30px;
+    }  
+    .product-block {
+        width: 30%;
+        position: relative;
+        overflow: hidden;
+            height: 444px;
+    }
+    .product-image {
+        object-fit: cover;
+        display: block;
+        max-width: 100%;
+        height: 100%;
+        object-position: center;
+    }
+    .product-item-view {
+        cursor: pointer;
+    }
+    .product-image[alt="Black Leather Bag"] + .product-item-view {
+        position: absolute;
+        left: 60%;
+        top: 54%;
+    }
+    .product-image[alt="Blue Silk Tuxedo"] + .product-item-view {
+        position: absolute;
+        left: 86%;
+        top: 49%;
+    }
+    .product-image[alt="Chequered Red Shirt"] + .product-item-view {
+        position: absolute;
+        left: 60%;
+        top: 18%;
+    }
+    .product-image[alt="Classic Leather Jacket"] + .product-item-view {
+        position: absolute;
+        left: 71%;
+        top: 16%;
+    }
+    .product-image[alt="Classic Varsity Top"] + .product-item-view {
+        position: absolute;
+        left: 48%;
+        top: 22%;
+    }
+        .product-image[alt="Dark Denim Top"] + .product-item-view {
+        position: absolute;
+        left: 77%;
+        top: 38%;
+    }
+
+    .product-popup-wrapper {
+        display: none;
+        background-color: rgba(0, 0, 0, 0.6);
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+    }
+    .product-popup-wrapper .product-item {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: white;
+        z-index: 99;
+        width: 311px;
+        margin: auto;
+        padding: 36px 20px 25px 20px;
+    }
+    .product-item-info-wrapper {
+        display: grid;
+        grid-template-columns: 120px 1fr;
+        gap: 8px;
+    }
+    .close-pop-up {
+        position: absolute;
+        top: 12px;
+        right: 15px;
+        cursor: pointer;
+    }
+    .product-item-image {
+        height: 140px;
+    }
+    .product-item-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .product-item-title {
+        font-family: "Jost";
+        font-weight: 300;
+        font-size: 16px;
+        line-height: 120%;
+        letter-spacing: 0px;
+        vertical-align: middle;
+        margin-top: 5px;
+    }
+    .product-item-price {
+        font-family: "Lustria";
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 120%;
+        letter-spacing: 0px;
+        vertical-align: middle;
+        margin: 11px 0 12px;
+    }
+    .product-item-description  p {
+        font-family: "Jost";
+        font-weight: 300;
+        font-size: 14px;
+        line-height: 110.00000000000001%;
+        letter-spacing: -1%;
+        margin: unset;
+    }
+    .product-item-variant-info {
+        margin: 10px 0 51px;
+    }
+    .variant-color-heading {
+        font-family: "Jost";
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 130%;
+        letter-spacing: 0%;
+        color: #333333;
+    }
+    .variant-color {
+        display: flex;
+        gap: 0;
+        margin-top: 6px;
+    }
+    button.color-button {
+        width: 50%;
+        text-align: left;
+        display: flex;
+        padding: unset;
+        background: white;
+        border: 0.5px solid black;
+    }
+    .button-text {
+        font-family: "Jost";
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 100%;
+        letter-spacing: -2%;
+        text-transform: capitalize;
+        padding: 10px 0 10px 9px;
+    }
+    .color-name {
+        display: block;
+        width: 6px;
+        height: 100%;
+        border-right: 0.5px solid black;
+    }
+    .color-button[data-color="Black"] > span.color-name {
+        background-color: black;
+    }
+    .color-button[data-color="White"] > span.color-name {
+        background-color: white;
+    }
+    .color-button[data-color="Blue"] > span.color-name {
+        background-color: #0D499F;
+    }
+    .color-button[data-color="Red"] > span.color-name {
+        background-color: #B20F36;
+    }
+    .color-button[data-color="Gray"] > span.color-name {
+        background-color: #AFAFB7;
+    }
+    .btn-active {
+        background-color: black !important;
+        color: white;
+    }
+    .varaint-size-heading {
+        font-family: "Jost";
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 130%;
+        letter-spacing: 0%;
+        margin: 11px 0 6px;
+    }
+    #variant-size-select {
+        width: 100%;
+        font-family: "Jost";
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 100%;
+        letter-spacing: -2%;
+        vertical-align: middle;
+        padding: 10px 0 9px 13px;
+        border: 0.5px solid black;
+        appearance: none;
+        background-color: transparent;
+        cursor: pointer;
+    }
+    #variant-size-select:focus-visible {
+        outline: none;
+        box-shadow: unset;
+    }
+    .variant-size {
+        position: relative;
+        width: 100%;
+    }
+    .variant-size::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        width: 0.5px;
+        height: 35px;
+        right: 55px;
+        top: 0;
+        z-index: 9999999;
+        background: black;
+    }
+    .variant-size::Before {
+        content: " ";
+        position: absolute;
+        top: 14px;
+        right: 21px;
+        width: 15px;
+        height: 15px;
+        background: url("https://cdn.shopify.com/s/files/1/0618/9108/4363/files/Vector.png?v=1749650207");
+        background-repeat: no-repeat;
+        z-index: -1;      
+        background-size: contain;
+    }
+    select,
+::picker(select) {
+  appearance: base-select;
+}
+* {
+  box-sizing: border-box;
+}
+
+   select#variant-size-select option {
+  background-color: white;
+  color: black;
+}
+
+select#variant-size-select option:hover,
+select#variant-size-select option:focus {
+  background-color: black;
+  color: white;
+}
+    .custom-btn {
+       font-family: "Jost";
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 20.48px;
+        letter-spacing: 0px;
+        text-align: center;
+        vertical-align: middle;
+        text-transform: uppercase;
+        transform: translateZ(0);
+        position: relative;
+        border: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 11px 0;
+        width: 207px;
+        cursor: pointer;
+    }
+    .custom-btn span {
+      display: flex;
+      gap: 18px;
+      justify-content: center;
+      align-items: center;
+      text-transform: uppercase;
+    }
+    .custom-btn::before {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        transform: scaleX(0);
+        transform-origin: 0 50%;
+        transition-property: transform;
+        transition-duration: 0.3s;
+    }
+    .custom-btn:hover::before {
+        transform: scaleX(1);
+    }
+    .btn-primary {
+        background-color: black;
+        color: white;
+            width: 220px;
+    padding-block: 14px;
+    }
+    .btn-primary .arrow-black, .btn-secondary .arrow-white{
+        display: none ;
+    }
+    .btn-primary .arrow-white, .btn-secondary .arrow-black {
+        display: inline-block;
+    }
+    .btn-primary::before {
+        background-color: #FFF544;
+    }
+    .btn-primary:hover {
+        color: black;
+    }
+    .btn-secondary:hover .arrow-black, .btn-primary:hover .arrow-white {
+        display: none;
+    }
+    .btn-secondary:hover .arrow-white , .btn-primary:hover .arrow-black {
+        display: inline-block;
+    }
+    .btn-secondary {
+        background-color: #FFF544;
+    }
+    .btn-secondary::before {
+        background-color: black;
+    }
+    .btn-secondary:hover {
+        color: white;
+    }
+    .arrow-black , .arrow-white {
+        max-width: 24px;
+        width: 100%;
+        height: auto;
+    }
+    .product-item-add .btn-primary {
+        width: 100% !important;
+    }
+
+    .confirmation-box {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: white;
+        z-index: 99;
+        margin: auto;
+        padding: 36px 20px 25px 20px;
+        border-radius: 20px
+    }
+    .confirmation-message {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+    }
+    .confirmation-box  img {
+        max-width: 26px;
+        width: 100%;
+        height: auto;
+    }
+
+    @media screen and (max-width: 768px){
+        .feature-products .container {
+            padding: 40px 16px 23px;
+        }
+        .feature-product-heading {
+            font-size: 24px;
+            text-align: center;
+        }
+        .products-grid {
+            margin-top: 20px;
+            gap: 4px;
+        }
+        .product-block {
+            width: 49%;
+            height: unset;
+            min-height: 186px;
+        }
+        .product-item-view svg {
+            width: 15px;
+            height: 15px;
+        }
+        .product-image[alt="Black Leather Bag"] + .product-item-view {
+            position: absolute;
+            left: 57%;
+            top: 7%;
+        }
+        .product-image[alt="Blue Silk Tuxedo"] + .product-item-view {
+            position: absolute;
+            left: 56%;
+            top: 7%;
+        }
+        .product-image[alt="Chequered Red Shirt"] + .product-item-view {
+            position: absolute;
+            left: 57%;
+            top: 8%;
+        }
+        .product-image[alt="Classic Leather Jacket"] + .product-item-view {
+            position: absolute;
+            left: 57%
+            top: 8%;
+        }
+        .product-image[alt="Dark Denim Top"] + .product-item-view {
+            position: absolute;
+            left: 57%;
+            top: 9%;
+        }
+        .product-image[alt="Classic Varsity Top"] + .product-item-view {
+            position: absolute;
+            left: 58%;
+            top: 7%;
+        }
+    }
